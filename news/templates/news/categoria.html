@@ -1,0 +1,25 @@
+{% extends "news/main.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div class="row">
+    {% for noticia in noticias %}
+    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+        <div class="portfolio-item">
+            <a class="portfolio-link" href="{% url 'noticia_detalle' noticia.slug %}">
+                <div class="portfolio-hover">
+                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                </div>
+                <img class="img-fluid" src="{{noticia.imagen.url}}" alt="{{noticia.imagen}}" />
+            </a>
+            <div class="portfolio-caption">
+                <div class="portfolio-caption-heading">{{noticia.titulo}}</div>
+                <div class="portfolio-caption-subheading text-muted">{{noticia.contenido|slice:":150"}}</div>
+                <a href="{% url 'noticia_detalle' noticia.slug %}" class="btn btn-primary mt-2">Ver Más &rarr;</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

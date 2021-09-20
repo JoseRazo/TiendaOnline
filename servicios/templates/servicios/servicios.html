@@ -1,0 +1,32 @@
+{% extends "blog/main.html" %}
+
+{% load static %}
+
+{% block content %}
+<!-- Masthead-->
+  <header class="masthead-pages">
+      <div class="container">
+          <div class="masthead-heading text-uppercase">Nuestros Servicios</div>
+      </div>
+  </header>
+  <!-- Services-->
+  <section class="page-section" id="services">
+      <div class="container">
+          <div class="text-center">
+              <h2 class="section-heading text-uppercase">Servicios</h2>
+              <h3 class="section-subheading text-muted">Conoce nuestros servicios</h3>
+          </div>
+          <div class="row text-center">
+            {% for servicio in servicios %}
+            <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <img src="{{servicio.imagen.url}}" style="width: 100%" alt="">
+              </span>
+              <h4 class="my3">{{servicio.titulo}}</h4>
+              <p class="text-muted">{{servicio.contenido}}</p>
+            </div>
+            {% endfor%}
+          </div>
+      </div>
+  </section>
+{% endblock %}
