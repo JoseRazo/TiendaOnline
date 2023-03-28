@@ -23,7 +23,7 @@ def contactView(request):
             try:
                 email.send()
                 return redirect('/contacto/?valido')
-            except:
+            except Exception as e:
                 return redirect('/contacto/?novalido')
 
     return render(request, "contacto/contacto.html", {'miFormulario': form})
